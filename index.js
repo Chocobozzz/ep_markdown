@@ -31,8 +31,7 @@ exports.eejsBlock_mySettings = function (hook_name, args, cb) {
 }
 
 exports.import = function (hook_name, args ,callback){
-
-  if(args.fileEnding.indexOf(".md") === -1) return callback();
+  if(!args.srcFile.endsWith(".md")) return callback();
   // It is Markdown file, let's go!
 
   var markdown  = fs.readFileSync(args.srcFile, 'utf-8');
